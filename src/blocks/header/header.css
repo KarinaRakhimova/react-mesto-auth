@@ -1,0 +1,23 @@
+.header {
+  padding: 45px 0 0;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+}
+
+@media screen and (max-width: 976px) {
+  .header {
+    padding: 45px 30px 0;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .header {
+    padding: 45px 19px 0;
+  }
+}
+
+@media screen and (max-width:475px) {
+  .header {
+    padding: 28px 0px 0;
+  }
+}

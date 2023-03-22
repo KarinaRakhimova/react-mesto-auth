@@ -1,0 +1,21 @@
+.page {
+  background-color: #000000;
+  width: 100%;
+  max-width: 880px;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  color: #FFFFFF;
+  margin: auto;
+  font-weight: 400;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+#root {
+  background-color: #000000;
+}

@@ -1,0 +1,16 @@
+.elements {
+  padding: 25px 0 34px;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 976px) {
+  .elements {
+    padding: 25px 30px 34px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .elements {
+  padding: 18px 19px 24px;
+  }
+}

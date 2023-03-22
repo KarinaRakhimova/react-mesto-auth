@@ -1,0 +1,22 @@
+.profile__info {
+  display: grid;
+  grid-template-columns: repeat(3,fit-content(325px));
+  grid-template-areas:
+  "avatar name button"
+  "avatar description .";
+  column-gap: 18px;
+  row-gap: 16px;
+}
+
+@media screen and (max-width:555px) {
+  .profile__info {
+    grid-template-columns: repeat(2,fit-content(300px));
+    grid-template-areas:
+    "avatar avatar"
+    "name button"
+    "description description";
+    column-gap: 10px;
+    row-gap: 14px;
+    justify-items: center;
+  }
+}
