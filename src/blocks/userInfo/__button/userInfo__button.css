@@ -1,0 +1,9 @@
+.userInfo__button {
+  color: #FFFFFF;
+  background-color: #000000;
+  border: none;
+  cursor: pointer;
+  height: 22px;
+  margin: 5px 0;
+  padding: 0;
+}

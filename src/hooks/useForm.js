@@ -7,5 +7,7 @@ export function useForm(inputValues) {
     setValues({...values, [name]: value })
   }
   return {values, handleChange, setValues};
+
 }
-//не до конфа разобралась, поэтому не стала пока использовать
+
+

@@ -1,0 +1,18 @@
+.authForm__submit {
+  height: 50px;
+  background-color: #FFFFFF;
+  color: #000000;
+  font-size: 18px;
+  line-height: 1.22;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  margin-top: 186px;
+  width: 100%;
+  text-align: center;
+}
+
+.authForm__submit:hover {
+  opacity: 0.8;
+}
