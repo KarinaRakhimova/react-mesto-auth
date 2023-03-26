@@ -1,0 +1,12 @@
+.header__userInfo {
+  display: flex;
+  justify-content: baseline;
+}
+
+@media screen and (max-width:475px) {
+  .header__userInfo {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+}

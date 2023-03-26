@@ -53,9 +53,9 @@ class Api {
     })
   }
 
-  toggleLike(cardId, method) {
+  toggleLike(cardId, isLiked) {
     return this._request(`${this._baseUrl}/cards/${cardId}/likes`, {
-      method: method,
+      method: isLiked ? 'DELETE': 'PUT',
       headers: this._headers,
     })
   }

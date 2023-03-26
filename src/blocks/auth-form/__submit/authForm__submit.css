@@ -16,3 +16,10 @@
 .authForm__submit:hover {
   opacity: 0.8;
 }
+
+@media screen and (max-width:475px) {
+  .authForm__submit {
+    font-size: 16px;
+    margin-top: 100px;
+  }
+}

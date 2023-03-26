@@ -5,6 +5,9 @@
 
 @import url(./blocks/header/header.css);
 @import url(./blocks/header/__logo/header__logo.css);
+@import url(./blocks/header/__userInfo/header__userInfo.css);
+@import url(./blocks/header/__email/header__email.css);
+@import url(./blocks/header/__button/header__button.css);
 
 @import url(./blocks/content/content.css);
 
@@ -55,6 +58,4 @@
 @import url(./blocks/auth-form/__input/authForm__input.css);
 @import url(./blocks/auth-form/__submit/authForm__submit.css);
 @import url(./blocks/auth-form/__title/authForm__title.css);
-@import url(./blocks/userInfo/userInfo.css);
-@import url(./blocks/userInfo/__button/userInfo__button.css);
-@import url(./blocks/userInfo/__email/userInfo__email.css)
+

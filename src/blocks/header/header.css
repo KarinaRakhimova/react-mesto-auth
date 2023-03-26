@@ -21,5 +21,6 @@
 @media screen and (max-width:475px) {
   .header {
     padding: 28px 0px 0;
+    flex-direction: column;
   }
 }
