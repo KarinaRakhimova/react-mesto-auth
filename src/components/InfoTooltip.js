@@ -1,4 +1,4 @@
-import regSuccesImg from "../images/regSuccess.svg";
+import regSuccessImg  from "../images/regSuccess.svg";
 import regFailImg from "../images/regFail.svg";
 
 function InfoTooltip({ isOpen, onClose, regSuccess }) {
@@ -9,7 +9,7 @@ function InfoTooltip({ isOpen, onClose, regSuccess }) {
       <figure className="popup__regResult-container">
         <img
           className="popup__regResult-image"
-          src={regSuccess ? regSuccesImg : regFailImg}
+          src={regSuccess ? regSuccessImg : regFailImg}
           alt={""}
         />
         <figcaption className="popup__regResult-caption">

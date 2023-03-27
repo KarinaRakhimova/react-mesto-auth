@@ -1,10 +1,11 @@
-import { Route, Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../images/logo.svg";
 
 function Header({ email, onSignOut, loggedIn }) {
   const location = useLocation();
+  const navigate = useNavigate();
 
-  const handleRedirect = () => {
+  const getButtonByPathName = () => {
     if (location.pathname === "/sign-up") {
       return <Link to="/sign-in" style={{textDecoration:'none', color: '#FFF'}}>Войти</Link>
     }
@@ -13,7 +14,9 @@ function Header({ email, onSignOut, loggedIn }) {
     }
     else {
       return (
-        <button className="header__button" onClick={loggedIn ? onSignOut : <Route to="/sign-in" />}>{loggedIn ? "Выйти" : "Войти"}</button>
+        <button className="header__button" onClick={loggedIn ? onSignOut : navigate("/sign-in", {replace:true})}>
+          {loggedIn ? "Выйти" : "Войти"}
+          </button>
       )
     }
   }
@@ -23,7 +26,7 @@ function Header({ email, onSignOut, loggedIn }) {
       <img className="header__logo" src={logo} alt="логотип" />
       <div className="header__userInfo">
         <p className="header__email">{email}</p>
-        {handleRedirect()}
+        {getButtonByPathName()}
       </div>
     </header>
   );

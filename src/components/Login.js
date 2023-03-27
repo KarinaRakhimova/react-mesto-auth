@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "../hooks/useForm";
 
 function Login({ onLogin }) {
-  const { values, handleChange, setValues } = useForm({
+  const { values, handleChange } = useForm({
     email: "",
     password: "",
   });
@@ -10,10 +10,6 @@ function Login({ onLogin }) {
   const handleFormSubmit = (evt) => {
     evt.preventDefault();
     onLogin(values);
-    setValues({
-      email: "",
-      password: "",
-    });
   };
 
   return (
