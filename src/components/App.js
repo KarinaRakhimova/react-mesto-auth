@@ -37,7 +37,6 @@ function App() {
   const [loggedIn, setLoggedIn] = React.useState(false)
   const [regSuccess, setRegSuccess] = React.useState(false)
   const [userEmail, setUserEmail] = React.useState('')
-
   const navigate = useNavigate();
 
   React.useEffect(() => {
@@ -75,18 +74,19 @@ function App() {
     setInfoToolTipOpen(false)
   }
 
-  function handleCardLike(card) {
-    const isLiked = card.likes.some(i => i._id === currentUser._id);
-    api.toggleLike(card._id, isLiked)
-      .then((newCard) => setCardsInfo((state) => state.map((c) => c._id === card._id ? newCard : c)))
-      .catch(err => console.log(`Ошибка ${err}`))
+  function handleCardLike(card, isLiked) {
+    api
+      .toggleLike(card._id, isLiked)
+      .then((newCard) => {
+        setCardsInfo((state) => state.map((c) => (c._id === card._id ? newCard : c)))})
+      .catch((err) => console.log(`Ошибка ${err}`));
   }
 
   function handleUpdateUser(profileInfo) {
     setEditProfilePopupLoading(true);
     api.editProfileInfo(profileInfo)
-      .then(res => {
-        setCurrentUser(res);
+      .then(user => {
+        setCurrentUser(user);
         closeAllPopups();
       })
       .catch(err => console.log(`Ошибка ${err}`))
@@ -132,11 +132,13 @@ function App() {
   const handleLoginSubmit = (inputValues) => {
     auth.login(inputValues)
       .then(res => {
-        localStorage.setItem('jwt', res.token)
-        setLoggedIn(true);
-        setUserEmail(inputValues.email)
-        navigate('/', { replace: true })
-      })
+        if (res) {
+          setLoggedIn(true);
+          setUserEmail(inputValues.email)
+          navigate('/', { replace: true })
+        }
+        return;
+        })
       .catch(err => console.log(err))
   }
 
@@ -154,25 +156,27 @@ function App() {
   }
 
   function checkToken() {
-    const jwt = localStorage.getItem('jwt')
-    if (jwt) {
-      auth.getToken(jwt)
+      auth.getToken()
         .then(res => {
           if (res) {
             setLoggedIn(true);
-            setUserEmail(res.data.email)
+            setUserEmail(res.email)
             navigate('/', { replace: true })
           }
         })
         .catch(err => console.log(err))
-    }
   }
 
   function handleSignOut() {
-    setLoggedIn(false);
-    setUserEmail("");
-    localStorage.removeItem("jwt");
-    navigate("/sign-in", { replace: true });
+    auth.signout()
+      .then((res) => {
+        if (res) {
+          setLoggedIn(false);
+          setUserEmail("");
+          navigate("/sign-in", { replace: true });
+        }
+    })
+    .catch(err => console.log(err))
   }
 
   return (
@@ -193,7 +197,8 @@ function App() {
               onCardDelete={handleCardDelete}
               cards={cards}
               onCardDeleteConfirm={handleCardDeleteConfirm}
-              loggedIn={loggedIn} />} />
+              loggedIn={loggedIn}
+             />} />
             <Route path='/sign-in' element={<Login onLogin={handleLoginSubmit} />} />
             <Route path='/sign-up' element={<Register onRegister={handleRegisterSubmit} />} />
             <Route path='*' element={<Login onLogin={handleLoginSubmit} />} />

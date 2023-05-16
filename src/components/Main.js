@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from './Card';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
-function Main({ onEditProfile, onEditAvatar, onAddPlace, onCardClick, onCardLike, onCardDelete, cards, onCardDeleteConfirm }) {
+function Main({ onEditProfile, onEditAvatar, onAddPlace, onCardClick, onCardLike, onCardDelete, cards, onCardDeleteConfirm, isLiked }) {
 
   const currentUser = React.useContext(CurrentUserContext)
   const cardElements = cards.map((card) => (
@@ -12,6 +12,7 @@ function Main({ onEditProfile, onEditAvatar, onAddPlace, onCardClick, onCardLike
       onCardLike={onCardLike}
       onCardDelete={onCardDelete}
       onCardDeleteConfirm={onCardDeleteConfirm}
+      isLiked = {isLiked}
     />
   ));
 
